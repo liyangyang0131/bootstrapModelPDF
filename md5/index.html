@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>md5密码加密</title>
+    <script src="md5.js"></script>
+</head>
+<body>
+    <form action="index0.html" method="post">
+        <div>
+            <label for="username">用户名：</label>
+            <input type="text" name="username" placeholder="请输入用户名">
+        </div>
+        <div>
+            <label for="psd">密码：</label>
+            <input type="password" placeholder="请输入密码">
+            <input type="hidden" name="psd">
+        </div>
+        <div>
+            <input type="submit"></input>
+        </div>
+    </form>
+
+<script>
+    window.onload = function(){
+        let username = document.getElementsByTagName('input')[0];
+        var psd = document.getElementsByTagName('input')[1];
+        var _psd = document.getElementsByTagName('input')[2];
+        let form = document.getElementsByTagName('form')[0];
+        let btn = document.getElementsByTagName('button')[0];
+        form.addEventListener('submit',function(){
+            if(!username.value){
+                alert('用户名为空！')
+                return;
+            }
+            if(!psd.value){
+                alert('密码为空！')
+                return;
+            }
+            _psd.value = hex_md5(hex_md5(hex_md5(psd.value)));
+            // document.cookie = 'user='+username.value;
+            // document.cookie = 'psd='+_psd.value;
+        })
+    }
+</script>
+
+</body>
+</html>
