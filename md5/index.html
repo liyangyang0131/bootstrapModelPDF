@@ -40,7 +40,7 @@
                 alert('密码为空！')
                 return;
             }
-            _psd.value = hex_md5(hex_md5(hex_md5(psd.value)));
+            _psd.value = hex_md5(hex_md5(hex_md5(psd.value)));   // 加密多次，防止在线解密工具解密
             // document.cookie = 'user='+username.value;
             // document.cookie = 'psd='+_psd.value;
         })
